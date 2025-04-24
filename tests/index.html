@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>Сканирование QR-кода</title>
+  <script src="https://unpkg.com/html5-qrcode" type="text/javascript"></script>
+  <style>
+    #reader {
+      width: 300px;
+      margin: auto;
+    }
+    #result {
+      margin-top: 10px;
+      text-align: center;
+      font-size: 18px;
+    }
+  </style>
+</head>
+<body>
+  <h2 style="text-align:center;">Сканирование участника</h2>
+  <div id="reader"></div>
+  <div id="result">Ожидание сканирования...</div>
+
+  <script>
+    const eventCode = prompt("Введите код мероприятия");
+
+    function onScanSuccess(qrCodeMessage) {
+      document.getElementById('result').innerText = "QR-код: " + qrCodeMessage;
+
+      fetch("http://127.0.0.1:5000/api/scan", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          event_code: eventCode,
+          unique_code: qrCodeMessage.trim()
+        })
+      })
+      .then(res => res.json())
+      .then(data => {
+        if (data.status === "ok") {
+          alert(data.message);
+        } else {
+          alert("Ошибка: " + data.message);
+        }
+      });
+
+      html5QrcodeScanner.clear();
+    }
+
+    const html5QrcodeScanner = new Html5QrcodeScanner(
+      "reader", { fps: 10, qrbox: 250 });
+
+    html5QrcodeScanner.render(onScanSuccess);
+  </script>
+</body>
+</html>

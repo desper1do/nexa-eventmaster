@@ -1,0 +1,163 @@
+/* css/style.css */
+/* Общие стили */
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  }
+  
+  main {
+    flex: 1;
+    padding-bottom: 20px;
+  }
+  
+  /* Навигация */
+  .navbar-brand {
+    font-weight: 600;
+    font-size: 1.5rem;
+  }
+  
+  /* Карточки */
+  .card {
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+  }
+  
+  /* Формы */
+  .form-control {
+    font-size: 16px;
+  }
+  
+  /* Кнопки */
+  .btn {
+    min-height: 44px;
+  }
+  
+  /* QR-сканер */
+  #scanner-container {
+    position: relative;
+    width: 100%;
+    max-width: 500px;
+    margin: 0 auto;
+    background: #000;
+    border-radius: 8px;
+    overflow: hidden;
+  }
+  
+  /* Таблицы */
+  .table-responsive {
+    max-height: 500px;
+    overflow-y: auto;
+  }
+  
+  .table th {
+    position: sticky;
+    top: 0;
+    background: white;
+    z-index: 10;
+  }
+  
+  .table-striped tbody tr:nth-of-type(odd) {
+    background-color: rgba(0, 0, 0, 0.02);
+  }
+  
+  /* Ссылки ВК */
+  .table a[href*="vk.com"] {
+    color: #2787F5;
+    text-decoration: none;
+  }
+  
+  /* QR-code container */
+  #qrcode {
+    display: inline-block;
+    margin: 20px 0;
+    padding: 10px;
+    background: white;
+    border: 1px solid #dee2e6;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Адаптация для мобильных */
+  @media (max-width: 768px) {
+    .modal-dialog {
+        margin: 1rem auto;
+        max-width: 95%;
+    }
+    
+    .btn-lg {
+        width: 100%;
+        margin-bottom: 10px;
+    }
+    
+    #qr-video {
+        max-height: 50vh;
+    }
+    
+    .table-responsive {
+        font-size: 0.8rem;
+    }
+    
+    .d-md-flex {
+      flex-direction: column;
+    }
+    
+    .me-md-2 {
+      margin-right: 0 !important;
+      margin-bottom: 10px;
+    }
+  }
+  
+  /* Уведомления */
+  .notification {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    padding: 15px;
+    background: #17a2b8;
+    color: white;
+    border-radius: 5px;
+    z-index: 1000;
+    animation: fadeIn 0.3s;
+  }
+  
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+  
+  @keyframes fadeOut {
+    from { opacity: 1; }
+    to { opacity: 0; }
+  }
+  
+  /* Бейджи статусов */
+  .badge.bg-success {
+    background-color: #28a745 !important;
+  }
+  
+  .badge.bg-secondary {
+    background-color: #6c757d !important;
+  }
+
+  #qrcode-container {
+    display: flex;
+    justify-content: center;  /* Центрирование по горизонтали */
+    align-items: center;      /* Центрирование по вертикали */
+    min-height: 200px;        /* Минимальная высота контейнера */
+    height: 100%;             /* Высота по содержимому */
+    width: 100%;              /* Ширина по содержимому */
+    margin: 20px auto;        /* Отступы вокруг */
+    padding: 20px;            /* Внутренние отступы */
+    background-color: #f7f7f7;  /* Светлый фон */
+    border: 2px solid #ccc;     /* Граница вокруг */
+    border-radius: 10px;         /* Скругленные углы */
+}
+
+#qrcode {
+    display: block;
+    margin: 0 auto;
+}
+

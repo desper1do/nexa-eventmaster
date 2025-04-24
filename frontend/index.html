@@ -1,0 +1,108 @@
+<!-- index.html -->
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>МойКампус - Главная</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="css/style.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
+</head>
+<body>
+  <header>
+    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+      <div class="container">
+        <a class="navbar-brand" href="index.html">МойКампус</a>
+      </div>
+    </nav>
+  </header>
+
+  <main class="container my-5">
+    <div class="text-center">
+      <h1>Добро пожаловать в МойКампус</h1>
+      <p class="lead">Выберите действие:</p>
+      <div class="d-grid gap-3 col-md-6 mx-auto">
+        <button class="btn btn-primary btn-lg" data-bs-toggle="modal" data-bs-target="#organizerModal">
+          Я организатор
+        </button>
+        <button class="btn btn-success btn-lg" data-bs-toggle="modal" data-bs-target="#eventModal">
+          Зарегистрироваться
+        </button>
+      </div>
+    </div>
+  </main>
+
+  <!-- Модальное окно организатора -->
+  <div class="modal fade" id="organizerModal" tabindex="-1">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Вход для организаторов</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+        </div>
+        <div class="modal-body">
+          <form id="organizerForm">
+            <div class="mb-3">
+              <label class="form-label">Код организатора</label>
+              <div class="input-group">
+                <input type="password" class="form-control" id="organizerCode" required>
+                <button class="btn btn-outline-secondary" type="button" id="toggleOrganizerCode">
+                  <i class="bi bi-eye"></i>
+                </button>
+              </div>
+            </div>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Отмена</button>
+          <button type="submit" class="btn btn-primary" form="organizerForm">Войти</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Модальное окно мероприятия -->
+<div class="modal fade" id="eventModal" tabindex="-1">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Регистрация на мероприятие</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+      </div>
+      <div class="modal-body">
+        <form id="eventForm">
+          <div class="mb-3">
+            <label class="form-label">Код мероприятия</label>
+            <input type="text" class="form-control" id="eventCode" required>
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Отмена</button>
+        <button type="submit" class="btn btn-success" form="eventForm">Продолжить</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+  <footer class="bg-light py-3 mt-auto">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6">
+          <span>Nexa</span>
+        </div>
+        <div class="col-md-6 text-end">
+          <a href="https://github.com/your-repo" target="_blank" class="text-dark fs-4 ms-2">
+            <i class="bi bi-github"></i>
+          </a>          
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="js/auth.js"></script>
+</body>
+</html>
