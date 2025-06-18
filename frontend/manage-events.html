@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Управление мероприятиями</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="css/manage-events.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
+</head>
+<body>
+  <header>
+    <nav class="navbar navbar-expand-lg bg-dark">
+      <div class="container">
+        <a class="navbar-brand text-light" href="index.html">МойКампус</a>
+      </div>
+    </nav>
+  </header>
+
+  <main class="container my-5">
+    <h1 class="mb-4 text-center">Все мероприятия</h1>
+
+    <div class="mb-4 d-flex justify-content-center">
+    <div class="input-group" style="max-width: 400px; width: 100%;">
+        <input type="text" id="searchInput" class="form-control" placeholder="Поиск по коду мероприятия...">
+        <button class="btn btn-outline-secondary" id="searchBtn">Поиск</button>
+    </div>
+    </div>
+
+    <div id="eventsList" class="row row-cols-1 row-cols-md-2 g-4"></div>
+  </main>
+
+  <div class="modal fade" id="deleteModal" tabindex="-1">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Удалить мероприятие</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+        </div>
+        <div class="modal-body">
+          <p>Вы уверены, что хотите удалить это мероприятие? Это действие необратимо.</p>
+        </div>
+        <div class="modal-footer">
+          <button class="btn btn-secondary" data-bs-dismiss="modal">Отмена</button>
+          <button class="btn btn-danger" id="confirmDeleteBtn">Удалить</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+    <footer class="bg-dark py-3 mt-auto">
+    <div class="container">
+        <div class="d-flex justify-content-between align-items-center">
+        <a href="https://project.ai-info.ru/teams/nexa" class="text-light text-decoration-none fw-semibold">Nexa</a>
+        <a href="https://github.com/desper1do/nexa-eventmaster" target="_blank" class="text-light fs-4">
+            <i class="bi bi-github"></i>
+        </a>
+        </div>
+    </div>
+    </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    const eventsList = document.getElementById('eventsList');
+    const searchInput = document.getElementById('searchInput');
+    const deleteModal = new bootstrap.Modal(document.getElementById('deleteModal'));
+    let selectedEventCode = null;
+
+    fetch('http://localhost:5000/api/events/all')
+      .then(res => res.json())
+      .then(data => {
+        data.forEach(event => {
+          const col = document.createElement('div');
+          col.className = 'col';
+
+          col.innerHTML = `
+            <div class="card h-100 shadow-sm">
+              <div class="card-body">
+                <h2 class="card-title mb-2">${event.name}</h2>
+                <p class="text-muted mb-0">🗓️ ${formatDate(event.event_date)}</p>
+                <p class="text-muted mb-0">📍 ${event.location || 'Не указано'}</p>
+                <p class="text-muted mb-2">🔑 Код: ${event.event_code}</p>
+                <div class="card-text">${formatDescription(event.description)}</div>
+              </div>
+                <div class="card-footer d-flex justify-content-between align-items-center py-3 flex-wrap gap-2">
+                <div class="ms-1">
+                <span class="badge ${event.published ? 'bg-success' : 'bg-secondary'}">
+                    Статус: ${event.published ? 'Опубликовано' : 'Не опубликовано'}
+                </span>
+                </div>
+                <div class="d-flex gap-2">
+                    <button class="btn btn-primary open-btn" data-code="${event.event_code}">
+                    <i class="bi bi-eye"></i> Открыть
+                    </button>
+                    <button class="btn btn-danger delete-btn" data-code="${event.event_code}">
+                    <i class="bi bi-trash"></i> Удалить
+                    </button>
+                </div>
+                </div>
+            </div>
+          `;
+          eventsList.appendChild(col);
+        });
+
+        document.querySelectorAll('.open-btn').forEach(btn => {
+          btn.addEventListener('click', () => {
+            const code = btn.getAttribute('data-code');
+            sessionStorage.setItem('currentEventId', code);
+            window.location.href = 'event-details.html';
+          });
+        });
+
+        document.querySelectorAll('.delete-btn').forEach(btn => {
+          btn.addEventListener('click', () => {
+            selectedEventCode = btn.getAttribute('data-code');
+            deleteModal.show();
+          });
+        });
+        
+      });
+
+    document.getElementById('confirmDeleteBtn').addEventListener('click', () => {
+      if (!selectedEventCode) return;
+      fetch(`http://localhost:5000/api/events/${selectedEventCode}`, {
+        method: 'DELETE'
+      }).then(res => res.json())
+        .then(data => {
+          if (data.status === 'ok') {
+            location.reload();
+          } else {
+            alert('Ошибка при удалении');
+          }
+        });
+    });
+
+    searchInput.addEventListener('keydown', e => {
+      if (e.key === 'Enter') {
+        const code = searchInput.value.trim();
+        if (code) {
+          sessionStorage.setItem('currentEventId', code);
+          window.location.href = 'event-details.html';
+        }
+      }
+    });
+
+    document.getElementById('searchBtn').addEventListener('click', () => {
+    const code = searchInput.value.trim();
+    if (code) {
+        sessionStorage.setItem('currentEventId', code);
+        window.location.href = 'event-details.html';
+    }
+    });
+
+    function formatDate(dateStr) {
+      const date = new Date(dateStr);
+      return date.toLocaleString('ru-RU', {
+        day: 'numeric',
+        month: 'long',
+        year: 'numeric',
+        hour: '2-digit',
+        minute: '2-digit'
+      }).replace(',', ' в');
+    }
+
+    function formatDescription(text) {
+      if (!text) return 'Описание отсутствует';
+      return text
+        .split(/\n\s*\n/)
+        .map(p => `<p>${p.trim()}</p>`)
+        .join('');
+    }
+  </script>
+</body>
+</html>

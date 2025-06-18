@@ -8,9 +8,10 @@ class Event(db.Model):
     name = db.Column(db.String(200))
     event_date = db.Column(db.String(50))
     location = db.Column(db.String(255))
-    description = db.Column(db.String(500))
+    description = db.Column(db.String(1000))
     additional_info = db.Column(db.String(255))
     event_code = db.Column(db.String(20), unique=True)
+    published = db.Column(db.Boolean, default=False) 
     participants = db.relationship('Participant', backref='event', lazy=True)
 
 class Participant(db.Model):

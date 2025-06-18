@@ -1,0 +1,302 @@
+/* Фон главной страницы */
+body {
+    background: url('/img/mainphoto.jpg') no-repeat center center fixed;
+    background-size: cover;
+    position: relative;
+  }
+  
+  /* Затемнение фона */
+  body::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.6);
+    z-index: -1;
+  }
+  
+  /* Основной контент */
+  main {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    text-align: center;
+    padding: 2rem;
+  }
+  
+  .main-content {
+    max-width: 800px;
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 2.5rem;
+    border-radius: 15px;
+  }
+  
+  h1 {
+    font-size: 2.5rem;
+    margin-bottom: 1.5rem;
+    font-weight: 700;
+  }
+  
+  .lead {
+    font-size: 1.25rem;
+    margin-bottom: 2rem;
+  }
+  
+ /* Базовые стили кнопок */
+.btn {
+  border-radius: 50px !important; /* Овальная форма */
+  padding: 14px 28px;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  border: none;
+  min-width: 220px;
+  margin: 10px 0;
+  font-size: 1.1rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* 1. Кнопка "Я организатор" - белая */
+.btn-organizer {
+  background-color: #faf5f5cd !important;
+  color: #333333 !important;
+}
+
+/* 2. Кнопка "Зарегистрироваться" - серая */
+.btn-register {
+  background-color: #4a4343cd !important;
+  color: #ffffff !important;
+}
+
+/* 3. Кнопка "Все мероприятия" - темно-серая */
+.btn-events {
+  background-color: #000000cd !important;
+  color: #ffffff !important;
+}
+
+/* Эффекты при наведении */
+.btn-organizer:hover {
+  background-color: #f5f5f5 !important;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+.btn-register:hover {
+  background-color: #4a4343 !important;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+.btn-events:hover {
+  background-color: #000000 !important;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+/* Активное состояние */
+.btn:active {
+  transform: translateY(1px) !important;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1) !important;
+}
+
+.btn {
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+/* Стили для модального окна организатора */
+#organizerModal .modal-content {
+  background-color: rgba(40, 40, 40, 0.95) !important;
+  border-radius: 15px !important;
+}
+
+#organizerModal .modal-header {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1) !important;
+  padding: 1rem 1.5rem !important;
+}
+
+#organizerModal .modal-footer {
+  border-top: 1px solid rgba(255, 255, 255, 0.1) !important;
+  display: flex !important;
+  justify-content: space-between !important;
+  padding: 1rem 1.5rem !important;
+}
+
+#organizerModal .btn-secondary {
+  background-color: #4a4343 !important;
+  border: none !important;
+  color: white !important;
+  border-radius: 50px !important;
+  padding: 8px 20px !important;
+  margin-right: 10px !important;
+}
+
+#organizerModal .btn-primary {
+  background-color: #faf5f5 !important;
+  border: none !important;
+  color: #333 !important;
+  border-radius: 50px !important;
+  padding: 8px 20px !important;
+}
+
+#organizerModal .modal-title {
+  color: #faf5f5 !important;
+  font-weight: 600;
+}
+
+#organizerModal .form-label {
+  color: #e0e0e0 !important;
+  margin-bottom: 0.5rem !important;
+}
+
+#organizerModal .input-group {
+  margin-bottom: 1.5rem !important;
+}
+
+#organizerModal .form-control {
+  background-color: rgba(50, 50, 50, 0.8) !important;
+  border: 1px solid rgba(255, 255, 255, 0.1) !important;
+  color: white !important;
+  border-radius: 8px !important;
+  padding: 10px 15px !important;
+}
+/* Стиль для кнопки-глазика */
+#toggleOrganizerCode {
+  min-width: 40px !important; /* Уменьшаем ширину */
+  width: 40px;
+  padding: 0 !important;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Стили для форм */
+.form-control {
+  background-color: rgba(50, 50, 50, 0.8) !important;
+  border: 1px solid rgba(255, 255, 255, 0.1) !important;
+  color: white !important;
+  border-radius: 8px !important;
+  padding: 10px 15px;
+}
+
+.form-control:focus {
+  background-color: rgba(60, 60, 60, 0.9) !important;
+  border-color: rgba(255, 255, 255, 0.3) !important;
+  box-shadow: 0 0 0 0.25rem rgba(255, 255, 255, 0.1) !important;
+  color: white !important;
+}
+
+.form-label {
+  color: #e0e0e0;
+}
+
+/* Стили для модального окна регистрации */
+#eventModal .modal-content {
+  background-color: rgba(40, 40, 40, 0.95) !important;
+  border-radius: 15px !important;
+}
+
+#eventModal .modal-header {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1) !important;
+  padding: 1rem 1.5rem !important;
+}
+
+#eventModal .modal-footer {
+  border-top: 1px solid rgba(255, 255, 255, 0.1) !important;
+  display: flex !important;
+  justify-content: space-between !important;
+  padding: 1rem 1.5rem !important;
+}
+
+#eventModal .btn-secondary {
+  background-color: #4a4343 !important;
+  border: none !important;
+  color: white !important;
+  border-radius: 50px !important;
+  padding: 8px 20px !important;
+  margin-right: 10px !important;
+}
+
+#eventModal .btn-success {
+  background-color: #faf5f5 !important;
+  border: none !important;
+  color: #333 !important;
+  border-radius: 50px !important;
+  padding: 8px 20px !important;
+}
+
+#eventModal .modal-title {
+  color: #faf5f5 !important;
+  font-weight: 600;
+}
+
+#eventModal .form-label {
+  color: #e0e0e0 !important;
+  margin-bottom: 0.5rem !important;
+}
+
+#eventModal .form-control {
+  background-color: rgba(50, 50, 50, 0.8) !important;
+  border: 1px solid rgba(255, 255, 255, 0.1) !important;
+  color: white !important;
+  border-radius: 8px !important;
+  padding: 10px 15px !important;
+}
+
+#eventModal .form-control:focus {
+  background-color: rgba(60, 60, 60, 0.9) !important;
+  border-color: rgba(255, 255, 255, 0.3) !important;
+  box-shadow: 0 0 0 0.25rem rgba(255, 255, 255, 0.1) !important;
+  color: white !important;
+}
+
+/* Адаптивность для модального окна */
+@media (max-width: 768px) {
+  #eventModal .modal-footer {
+    flex-direction: column;
+    gap: 10px;
+  }
+  
+  #eventModal .btn {
+    width: 100%;
+    margin-right: 0 !important;
+  }
+}
+
+@media (max-width: 768px) {
+  .main-content {
+    width: 95%;
+    padding: 1.5rem;
+  }
+
+  h1 {
+    font-size: 2rem;
+  }
+
+  .lead {
+    font-size: 1rem;
+  }
+
+  .btn {
+    min-width: 100%; /* Кнопки на всю ширину */
+    padding: 12px 24px;
+  }
+
+  /* Модальные окна */
+  .modal-dialog {
+    margin: 1rem auto;
+    max-width: 95%;
+  }
+
+  #organizerModal .modal-footer {
+    flex-direction: column; /* Кнопки в столбик */
+    gap: 10px;
+  }
+
+  #organizerModal .btn {
+    width: 100%;
+    margin-right: 0 !important;
+  }
+}

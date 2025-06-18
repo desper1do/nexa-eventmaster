@@ -1,0 +1,167 @@
+/* style.css */
+
+/* Основные стили */
+body {
+  background-color: #ffffff; /* Белый фон страницы */
+  color: #333;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+/* Карточки мероприятий */
+.card {
+  background-color: #f3e9dd; /* Бежевый фон карточек */
+  border-radius: 12px;
+  border: none;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  transition: transform 0.3s ease;
+  height: 100%;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+}
+
+.card-body {
+  padding: 1.5rem;
+}
+
+.card-title {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #2c3e50; /* Темно-серый для заголовков */
+  margin-bottom: 1rem;
+}
+
+.card-text {
+  color: #34495e; /* Серый для текста */
+  line-height: 1.6;
+}
+
+.card-footer {
+  background-color: #f2e2ce; /* Полупрозрачный бежевый */
+  border-top: 1px solid rgba(0, 0, 0, 0.05);
+  padding: 1rem 1.5rem;
+}
+
+/* Кнопки (все овальные) */
+.btn {
+  border-radius: 50px !important;
+  padding: 0.5rem 1.25rem;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  border: none;
+  min-width: 100px;
+}
+
+/* Переопределяем стили кнопки "Открыть" */
+.btn-primary {
+  background-color: #6e1717 !important; /* Серый */
+  border-color: #6c757d !important;
+}
+
+.btn-primary:hover {
+  background-color: #5c1515 !important; /* Темно-серый при наведении */
+}
+
+/* Делаем кнопку "Удалить" красной */
+.btn-danger {
+  background-color: #dc3545 !important;
+  border-color: #dc3545 !important;
+}
+
+.btn-danger:hover {
+  background-color: #c82333 !important; /* Темно-красный при наведении */
+}
+.btn-primary {
+  background-color: #b52c2ce6; /* Красный */
+}
+
+.btn-secondary {
+  background-color: #6c757d; /* Серый */
+}
+
+.btn-danger {
+  background-color: #b52c2ce6; /* Красный */
+}
+
+.btn-outline-secondary {
+  border: 1px solid #6c757d; /* Серый */
+  color: #6c757d;
+}
+
+.btn-outline-secondary:hover {
+  background-color: #6c757d;
+  color: white;
+}
+
+/* Бейджи статусов */
+.badge {
+  border-radius: 50px;
+  padding: 0.5em 0.8em;
+  font-weight: 500;
+}
+
+.bg-success {
+  background-color: #c12a00 !important;
+}
+
+.bg-secondary {
+  background-color: #6c757d !important;
+}
+
+/* Поисковая строка */
+.input-group {
+  max-width: 400px;
+}
+
+.input-group .form-control {
+  border-radius: 50px 0 0 50px !important;
+}
+
+.input-group .btn {
+  border-radius: 0 50px 50px 0 !important;
+}
+
+/* Модальное окно */
+.modal-content {
+  border-radius: 12px;
+  background-color: #ffffff;
+}
+
+.modal-header {
+  border-bottom: 1px solid #dee2e6;
+}
+
+.modal-footer {
+  border-top: 1px solid #dee2e6;
+}
+
+/* Адаптивность */
+@media (max-width: 768px) {
+  .card-footer {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  
+  .card-footer > div {
+    width: 100%;
+    justify-content: center !important;
+  }
+  
+  .btn {
+    width: 100%;
+  }
+}
+
+@media (max-width: 576px) {
+  .card-body {
+    padding: 1.25rem;
+  }
+  
+  .card-title {
+    font-size: 1.3rem;
+  }
+}

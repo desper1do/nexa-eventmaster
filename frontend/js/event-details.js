@@ -29,12 +29,58 @@ document.addEventListener('DOMContentLoaded', function() {
     // Инициализация кнопки экспорта
     document.getElementById('exportBtn').addEventListener('click', exportToExcel);
 
+    document.getElementById('publishToggle').addEventListener('change', function () {
+    const publish = this.checked;
+
+    fetch(`http://localhost:5000/api/events/${eventId}/publish`, {
+        method: 'POST',
+        headers: {
+        'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ publish })
+    })
+        .then(res => res.json())
+        .then(data => {
+        if (data.status === 'ok') {
+            showAlert(publish ? 'Мероприятие опубликовано' : 'Публикация снята');
+        } else {
+            throw new Error(data.message || 'Ошибка публикации');
+        }
+        })
+        .catch(err => {
+        showAlert('Ошибка: ' + err.message);
+        this.checked = !publish; 
+        });
+    });
+
+    const deleteModal = new bootstrap.Modal(document.getElementById('deleteModal'));
+
+    document.getElementById('deleteBtn').addEventListener('click', () => {
+        deleteModal.show();
+    });
+
+    document.getElementById('confirmDeleteBtn').addEventListener('click', () => {
+        fetch(`http://localhost:5000/api/events/${eventId}`, {
+            method: 'DELETE'
+        })
+        .then(res => res.json())
+        .then(data => {
+            if (data.status === 'ok') {
+                sessionStorage.removeItem('currentEventId');
+                window.location.href = 'organizer.html';
+            } else {
+                showAlert('Ошибка при удалении');
+            }
+        });
+    });
+
     function displayEventInfo(event) {
         document.getElementById('eventTitle').textContent = event.name;
-        document.getElementById('eventDateTime').textContent = `Дата: ${formatDate(event.event_date)}`;
-        document.getElementById('eventLocation').textContent = `Место: ${event.location || 'Не указано'}`;
-        document.getElementById('eventDescription').textContent = event.description || 'Описание отсутствует';
+        document.getElementById('eventDateTime').textContent = `🗓️ Дата: ${formatDate(event.event_date)}`;
+        document.getElementById('eventLocation').textContent = `📍 Место: ${event.location || 'Не указано'}`;
+        document.getElementById('eventDescription').innerHTML = formatDescription(event.description);
         document.getElementById('eventCode').value = eventId;
+        document.getElementById('publishToggle').checked = event.published;
 
         // Генерируем ссылку для регистрации
         const registrationLink = `${window.location.origin}/frontend/event-registration.html?event=${eventId}`;
@@ -42,18 +88,25 @@ document.addEventListener('DOMContentLoaded', function() {
 
     }
 
-   // Продолжение js/event-details.js
+    function formatDescription(text) {
+        if (!text) return 'Описание отсутствует';
+        return text
+            .split(/\n\s*\n/)
+            .map(p => `<p>${p.trim()}</p>`)
+            .join('');
+    }
+
    function loadParticipants(eventId) {
     fetch(`/api/participants/${eventId}`)
         .then(response => {
-            console.log(response);  // Логируем весь ответ
+            console.log(response); 
             if (!response.ok) {
                 throw new Error('Ошибка загрузки участников');
             }
             return response.json();
         })
         .then(participants => {
-            console.log('Participants:', participants);  // Логируем участников
+            console.log('Participants:', participants); 
             displayParticipants(participants);
         })
         .catch(error => {

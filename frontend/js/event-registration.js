@@ -28,24 +28,10 @@ document.addEventListener('DOMContentLoaded', function () {
             .then(data => {
                 if (data.status === 'ok') {
                     document.getElementById('eventTitle').textContent = data.name;
-                    document.getElementById('eventDescription').textContent = data.description || 'Описание отсутствует';
+                    document.getElementById('eventDateTime').textContent = `🗓️ Дата: ${formatDate(data.event_date)}`;
+                    document.getElementById('eventLocation').textContent = `📍 Место: ${data.location || 'Не указано'}`;
+                    document.getElementById('eventDescription').innerHTML = formatDescription(data.description);
 
-                    if (document.getElementById('eventDateTime')) {
-                        const date = new Date(data.event_date);
-                        const options = {
-                            day: 'numeric',
-                            month: 'long',
-                            year: 'numeric',
-                            hour: '2-digit',
-                            minute: '2-digit'
-                        };
-                        const formattedDate = date.toLocaleString('ru-RU', options).replace(',', ' в');
-                        document.getElementById('eventDateTime').textContent = `Дата: ${formattedDate}`;
-                    }
-
-                    if (document.getElementById('eventLocation')) {
-                        document.getElementById('eventLocation').textContent = `Место: ${data.location || 'не указано'}`;
-                    }
                 } else {
                     throw new Error('Мероприятие не найдено');
                 }
@@ -55,6 +41,27 @@ document.addEventListener('DOMContentLoaded', function () {
                 window.location.href = 'index.html';
             });
     }
+
+    function formatDescription(text) {
+        if (!text) return 'Описание отсутствует';
+        return text
+            .split(/\n\s*\n/)
+            .map(p => `<p>${p.trim()}</p>`)
+            .join('');
+    }
+
+    function formatDate(dateStr) {
+        const date = new Date(dateStr);
+        return date.toLocaleString('ru-RU', {
+            day: 'numeric',
+            month: 'long',
+            year: 'numeric',
+            hour: '2-digit',
+            minute: '2-digit'
+        }).replace(',', ' в');
+    }
+
+
 
     document.getElementById('registrationForm').addEventListener('submit', function (e) {
         e.preventDefault();

@@ -1,0 +1,161 @@
+/* qr-scan.css - полная обновленная версия */
+
+/* Основные стили */
+body {
+  background-color: #ffffff;
+  color: #333;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+/* Карточки */
+.card {
+  background-color: #f3e9dd;
+  border-radius: 12px;
+  border: none;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  height: 100%;
+  transition: transform 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+}
+
+.card-header {
+  background-color: #f2e2ce;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+  padding: 1rem 1.5rem;
+}
+
+.card-body {
+  padding: 1.5rem;
+}
+
+/* Общие стили кнопок */
+.btn {
+  border-radius: 50px !important;
+  padding: 0.5rem 1.25rem;
+  font-weight: 500;
+  border: none;
+  min-width: 120px;
+  transition: background-color 0.2s ease;
+}
+
+/* Центрирование кнопки "Начать сканирование" */
+#start-scan {
+  display: block;
+  margin: 0 auto;
+}
+
+/* Красная кнопка (основная) */
+.btn-primary {
+  background-color: #dc3545;
+  border-color: #dc3545;
+  color: white;
+}
+
+.btn-primary:hover,
+.btn-primary:focus,
+.btn-primary:active {
+  background-color: #ac1d2c !important;
+  border-color: #ac1d2c !important;
+}
+
+/* Серая кнопка (Экспорт в Excel) */
+.btn-success {
+  background-color: #6c757d !important; /* Серый цвет вместо зеленого */
+  border-color: #6c757d !important;
+  color: white !important;
+}
+
+.btn-success:hover,
+.btn-success:focus,
+.btn-success:active {
+  background-color: #5a6268 !important; /* Темно-серый при наведении */
+  border-color: #5a6268 !important;
+}
+
+/* Красная кнопка (Остановить/Удалить) */
+.btn-danger {
+  background-color: #dc3545;
+  border-color: #dc3545;
+  color: white;
+}
+
+.btn-danger:hover,
+.btn-danger:focus,
+.btn-danger:active {
+  background-color: #ac1d2c !important;
+  border-color: #ac1d2c !important;
+}
+
+.btn-sm {
+  padding: 0.25rem 0.75rem;
+  font-size: 0.875rem;
+}
+
+/* Контейнер сканера */
+#scanner-container {
+  position: relative;
+  margin: 0 auto;
+  border: 2px solid #6c757d;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Формы */
+.form-control {
+  border-radius: 8px;
+  padding: 0.5rem 1rem;
+  border: 1px solid #ced4da;
+}
+
+.form-control:focus {
+  border-color: #dc3545;
+  box-shadow: 0 0 0 0.2rem rgba(220, 53, 69, 0.25);
+}
+
+/* Уведомления */
+.alert {
+  border-radius: 8px;
+  padding: 1rem;
+}
+
+.alert-info {
+  background-color: #e2e3e5;
+  color: #383d41;
+  border-color: #d6d8db;
+}
+
+/* Адаптивность */
+@media (max-width: 768px) {
+  .card {
+    margin-bottom: 1.5rem;
+  }
+  
+  #scanner-container {
+    max-width: 100% !important;
+  }
+  
+  .btn {
+    width: 100%;
+    margin-bottom: 0.5rem;
+  }
+}
+
+@media (max-width: 576px) {
+  .card-body {
+    padding: 1rem;
+  }
+  
+  .card-header {
+    padding: 0.75rem 1rem;
+  }
+  
+  .btn {
+    padding: 0.4rem 1rem;
+    font-size: 0.9rem;
+  }
+}

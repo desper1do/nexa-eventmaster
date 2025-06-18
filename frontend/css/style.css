@@ -161,3 +161,11 @@ body {
     margin: 0 auto;
 }
 
+.card-text p {
+  margin-bottom: 0.5rem;
+}
+
+.card-text p:last-child {
+  margin-bottom: 0;
+}
+

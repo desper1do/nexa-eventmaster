@@ -1,0 +1,81 @@
+/* Стили для страницы создания мероприятия */
+body {
+  background-color: #ffffff; /* Белый фон страницы */
+  color: #333;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+  
+  .event-form-container {
+    background-color: #f3e9dd;
+    border-radius: 15px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  }
+  
+  .form-control {
+    border-radius: 8px;
+    padding: 12px 15px;
+    border: 1px solid #dee2e6;
+  }
+  
+  .form-control:focus {
+    border-color: #090a0a;
+    box-shadow: 0 0 0 0.25rem rgba(34, 36, 39, 0.25);
+  }
+  
+  textarea.form-control {
+    min-height: 120px;
+  }
+
+  /* Стиль для черной овальной кнопки */
+.btn-dark.rounded-pill {
+    background-color: #dc3545 !important;
+    color: white !important;
+    border: none;
+    min-width: 250px;
+    transition: all 0.3s ease;
+  }
+  
+  .btn-dark.rounded-pill:hover {
+    background-color: #a32d2d !important;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  }
+  
+  .btn-dark.rounded-pill:active {
+    transform: translateY(0);
+    box-shadow: none;
+  }
+  
+  /* Адаптивность для кнопки */
+  @media (max-width: 768px) {
+    .btn-dark.rounded-pill {
+      width: 100%;
+      max-width: 300px;
+    }
+  }
+  
+  /* Адаптивность */
+  @media (max-width: 768px) {
+    .event-form-container {
+      padding: 2rem !important;
+    }
+    
+    .btn-lg {
+      width: 100%;
+      padding: 12px !important;
+    }
+  }
+  
+  @media (max-width: 576px) {
+    .event-form-container {
+      padding: 1.5rem !important;
+    }
+    
+    h1 {
+      font-size: 1.8rem;
+    }
+  }

@@ -1,0 +1,175 @@
+/* Основные стили */
+body {
+  background-color: #ffffff;
+  color: #333;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+/* Карточки */
+.event-details-card {
+  background-color: #f3e9dd;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  margin-bottom: 2rem;
+  border: none;
+  max-width: 100%;
+  overflow: hidden;
+}
+
+/* Контейнер для кнопок */
+.button-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  justify-content: flex-start;
+  width: 100%;
+  max-width: 100%;
+  overflow: hidden;
+}
+
+/* Общие стили кнопок */
+.btn {
+  border-radius: 50px !important;
+  padding: 0.6rem 1.5rem;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  border: none;
+  min-width: 180px;
+  width: auto;
+  flex-shrink: 0;
+  box-sizing: border-box;
+  text-align: center;
+  white-space: nowrap;
+}
+
+/* Кнопка "Сканировать QR-код" */
+.btn-primary {
+  background-color: transparent !important;
+  border: 2px solid #dc3545 !important;
+  color: #dc3545 !important;
+}
+
+.btn-primary:hover,
+.btn-primary:focus,
+.btn-primary:active {
+  background-color: rgba(220, 53, 69, 0.1) !important;
+  color: #dc3545 !important;
+  box-shadow: none !important;
+}
+
+/* Кнопка "Экспорт в Excel" */
+.btn-success {
+  background-color: #6c757d !important;
+  border-color: #6c757d !important;
+  color: white !important;
+}
+
+.btn-success:hover,
+.btn-success:focus,
+.btn-success:active {
+  background-color: #5a6268 !important;
+  border-color: #5a6268 !important;
+  color: white !important;
+}
+
+/* Кнопка "Удалить мероприятие" */
+.btn-danger {
+  background-color: #dc3545 !important;
+  border-color: #dc3545 !important;
+  color: white !important;
+}
+
+.btn-danger:hover,
+.btn-danger:focus,
+.btn-danger:active {
+  background-color: #c82333 !important;
+  border-color: #bd2130 !important;
+  color: white !important;
+}
+
+/* Стили для переключателя опубликовать */
+.form-check-input:checked {
+  background-color: #dc3545 !important;
+  border-color: #dc3545 !important;
+}
+
+.form-check-input:focus {
+  box-shadow: 0 0 0 0.25rem rgba(220, 53, 69, 0.25) !important;
+}
+
+.form-check-input {
+  background-color: #adb5bd;
+  border-color: #adb5bd;
+  cursor: pointer;
+}
+
+.form-switch .form-check-input {
+  transition: background-color 0.2s ease-in-out, border-color 0.2s ease-in-out;
+}
+
+.form-check-label {
+  cursor: pointer;
+  user-select: none;
+}
+
+/* Стили для модального окна */
+.modal-footer {
+  display: flex;
+  justify-content: center !important;
+  gap: 15px;
+  padding: 1rem;
+  border-top: 1px solid #dee2e6;
+}
+
+.modal-footer .btn {
+  min-width: 120px;
+  margin: 0;
+}
+
+/* Адаптивность */
+@media (max-width: 768px) {
+  .button-container {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .btn {
+    width: 100%;
+    max-width: 280px;
+  }
+  
+  .card-body {
+    padding: 1.5rem;
+  }
+
+  .modal-footer {
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .modal-footer .btn {
+    width: 100%;
+    max-width: 200px;
+  }
+}
+
+@media (max-width: 576px) {
+  .btn {
+    padding: 0.5rem 1rem;
+    font-size: 0.9rem;
+  }
+  
+  .input-group {
+    flex-direction: column;
+  }
+  
+  .input-group .btn {
+    width: 100%;
+    margin-top: 0.5rem;
+  }
+}

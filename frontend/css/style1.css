@@ -1,0 +1,55 @@
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    -webkit-text-size-adjust: 100%;
+    margin: 0;
+    padding: 0;
+  }
+  
+  /* Шапка */
+  header {
+    background-color: #000 !important;
+  }
+  
+  .navbar {
+    padding: 1rem 0;
+  }
+  
+  .navbar-brand {
+    font-weight: 600;
+    font-size: 1.5rem;
+    color: white !important;
+  }
+  
+  /* Футер */
+  footer {
+    background-color: #000 !important;
+    color: white !important;
+    padding: 1.5rem 0;
+  }
+  
+  footer a {
+    color: white !important;
+    text-decoration: none;
+    transition: opacity 0.3s;
+  }
+  
+  footer a:hover {
+    opacity: 0.8;
+  }
+  
+
+  
+  /* Адаптация для мобильных */
+  @media (max-width: 768px) {
+    .navbar-brand {
+      font-size: 1.2rem;
+    }
+    
+    .btn {
+      width: 100%;
+      margin-bottom: 10px;
+    }
+  }
