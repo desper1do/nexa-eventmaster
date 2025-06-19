@@ -1,5 +1,3 @@
-/* css/style.css */
-/* Общие стили */
 body {
     display: flex;
     flex-direction: column;
@@ -12,30 +10,25 @@ body {
     padding-bottom: 20px;
   }
   
-  /* Навигация */
   .navbar-brand {
     font-weight: 600;
     font-size: 1.5rem;
   }
   
-  /* Карточки */
   .card {
     border-radius: 10px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     margin-bottom: 20px;
   }
   
-  /* Формы */
   .form-control {
     font-size: 16px;
   }
   
-  /* Кнопки */
   .btn {
     min-height: 44px;
   }
   
-  /* QR-сканер */
   #scanner-container {
     position: relative;
     width: 100%;
@@ -46,7 +39,6 @@ body {
     overflow: hidden;
   }
   
-  /* Таблицы */
   .table-responsive {
     max-height: 500px;
     overflow-y: auto;
@@ -63,13 +55,11 @@ body {
     background-color: rgba(0, 0, 0, 0.02);
   }
   
-  /* Ссылки ВК */
   .table a[href*="vk.com"] {
     color: #2787F5;
     text-decoration: none;
   }
   
-  /* QR-code container */
   #qrcode {
     display: inline-block;
     margin: 20px 0;
@@ -80,7 +70,6 @@ body {
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   }
   
-  /* Адаптация для мобильных */
   @media (max-width: 768px) {
     .modal-dialog {
         margin: 1rem auto;
@@ -110,7 +99,6 @@ body {
     }
   }
   
-  /* Уведомления */
   .notification {
     position: fixed;
     top: 20px;
@@ -133,7 +121,6 @@ body {
     to { opacity: 0; }
   }
   
-  /* Бейджи статусов */
   .badge.bg-success {
     background-color: #28a745 !important;
   }
@@ -144,16 +131,16 @@ body {
 
   #qrcode-container {
     display: flex;
-    justify-content: center;  /* Центрирование по горизонтали */
-    align-items: center;      /* Центрирование по вертикали */
-    min-height: 200px;        /* Минимальная высота контейнера */
-    height: 100%;             /* Высота по содержимому */
-    width: 100%;              /* Ширина по содержимому */
-    margin: 20px auto;        /* Отступы вокруг */
-    padding: 20px;            /* Внутренние отступы */
-    background-color: #f7f7f7;  /* Светлый фон */
-    border: 2px solid #ccc;     /* Граница вокруг */
-    border-radius: 10px;         /* Скругленные углы */
+    justify-content: center;
+    align-items: center;
+    min-height: 200px;
+    height: 100%;
+    width: 100%;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #f7f7f7;
+    border: 2px solid #ccc;
+    border-radius: 10px;
 }
 
 #qrcode {

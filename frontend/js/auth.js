@@ -1,8 +1,6 @@
-// js/auth.js
 document.addEventListener('DOMContentLoaded', function() {
     const ORGANIZER_CODE = "000000";
 
-    // Переключение видимости пароля организатора
     const toggleOrganizerCode = document.getElementById('toggleOrganizerCode');
     if (toggleOrganizerCode) {
         toggleOrganizerCode.addEventListener('click', function() {
@@ -14,7 +12,6 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    // Обработка формы организатора
     const organizerForm = document.getElementById('organizerForm');
     if (organizerForm) {
         organizerForm.addEventListener('submit', function(e) {
@@ -31,7 +28,6 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    // Обработка формы мероприятия (регистрация участника)
     const eventForm = document.getElementById('eventForm');
     if (eventForm) {
         eventForm.addEventListener('submit', function(e) {
@@ -43,7 +39,6 @@ document.addEventListener('DOMContentLoaded', function() {
                 return;
             }
 
-            // Проверяем существование мероприятия через API
             fetch(`http://localhost:5000/api/events/${eventCode}`)
                 .then(response => {
                     if (!response.ok) {
@@ -53,9 +48,8 @@ document.addEventListener('DOMContentLoaded', function() {
                 })
                 .then(data => {
                     if (data.status === 'ok') {
-                        // Сохраняем eventCode в sessionStorage и редиректим с параметром в URL
                         sessionStorage.setItem('currentEventId', eventCode);
-                        window.location.href = `event-registration.html?event=${eventCode}`;  // Перенаправляем на страницу с параметром
+                        window.location.href = `event-registration.html?event=${eventCode}`;
                     } else {
                         throw new Error(data.message || 'Ошибка при проверке мероприятия');
                     }

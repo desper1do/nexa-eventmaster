@@ -1,4 +1,3 @@
-// js/qr-scanner.js
 document.addEventListener('DOMContentLoaded', function () {
     const video = document.getElementById('qr-video');
     const startBtn = document.getElementById('start-scan');

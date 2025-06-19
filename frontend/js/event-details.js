@@ -1,4 +1,3 @@
-// js/event-details.js
 document.addEventListener('DOMContentLoaded', function() {
     const eventId = sessionStorage.getItem('currentEventId');
     if (!eventId) {
@@ -7,7 +6,6 @@ document.addEventListener('DOMContentLoaded', function() {
         return;
     }
 
-    // Загружаем информацию о мероприятии
     fetch(`http://localhost:5000/api/events/${eventId}`)
         .then(response => response.json())
         .then(data => {
@@ -23,10 +21,8 @@ document.addEventListener('DOMContentLoaded', function() {
             window.location.href = 'organizer.html';
         });
 
-    // Инициализация кнопок копирования
     initCopyButtons();
 
-    // Инициализация кнопки экспорта
     document.getElementById('exportBtn').addEventListener('click', exportToExcel);
 
     document.getElementById('publishToggle').addEventListener('change', function () {
@@ -82,7 +78,6 @@ document.addEventListener('DOMContentLoaded', function() {
         document.getElementById('eventCode').value = eventId;
         document.getElementById('publishToggle').checked = event.published;
 
-        // Генерируем ссылку для регистрации
         const registrationLink = `${window.location.origin}/frontend/event-registration.html?event=${eventId}`;
         document.getElementById('eventLink').value = registrationLink;
 

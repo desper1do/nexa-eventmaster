@@ -1,6 +1,3 @@
-/* qr-display.css */
-
-/* Основные стили */
 body {
   background-color: #f8f9fa;
   color: #212529;
@@ -10,12 +7,10 @@ body {
   min-height: 100vh;
 }
 
-/* Навигация */
 .navbar {
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
 }
 
-/* Карточка с QR-кодом */
 .card {
   background-color: #f3e9dd;
   border-radius: 12px;
@@ -27,8 +22,6 @@ body {
 .card:hover {
   transform: translateY(-5px);
 }
-
-/* Контейнер QR-кода */
 #qrcode-container {
   min-height: 250px;
   background-color: white;
@@ -38,7 +31,6 @@ body {
   box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.05);
 }
 
-/* Кнопки */
 .btn {
   border-radius: 50px !important;
   padding: 0.5rem 1.25rem;
@@ -66,13 +58,11 @@ body {
   color: white !important;
 }
 
-/* Иконки */
 .bi {
   vertical-align: middle;
   margin-right: 8px;
 }
 
-/* Подвал */
 footer {
   box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
 }
@@ -85,7 +75,6 @@ footer {
   transform: scale(1.1);
 }
 
-/* Текст */
 h3 {
   color: #2c3e50;
   font-weight: 600;
@@ -97,7 +86,6 @@ h3 {
   font-size: 0.9rem;
 }
 
-/* Адаптивность */
 @media (max-width: 576px) {
   .card {
     padding: 1.5rem;
@@ -113,7 +101,6 @@ h3 {
   }
 }
 
-/* Специфичные стили для активного состояния кнопок */
 .btn-primary:not(:disabled):not(.disabled):active,
 .btn-primary:not(:disabled):not(.disabled).active {
   background-color: #8a1f1fe6 !important;

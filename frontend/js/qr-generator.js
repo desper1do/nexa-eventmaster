@@ -1,4 +1,3 @@
-// js/qr-generator.js
 document.addEventListener('DOMContentLoaded', function() {
     const registrationData = sessionStorage.getItem('lastRegistration');
     if (!registrationData) {
@@ -15,12 +14,11 @@ document.addEventListener('DOMContentLoaded', function() {
         const container = document.getElementById('qrcode');
         if (!container) return;
     
-        container.innerHTML = ''; // Очистка предыдущего QR (если есть)
+        container.innerHTML = ''; 
     
         const img = document.createElement('img');
         img.alt = 'QR Code';
     
-        // Используем стороннюю библиотеку QRCode.js (если она подключена через <script src="...">)
         new QRCode(container, {
             text: text,
             width: 200,

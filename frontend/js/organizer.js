@@ -1,4 +1,3 @@
-// js/organizer.js
 document.addEventListener('DOMContentLoaded', function() {
     const viewEventForm = document.getElementById('viewEventForm');
     
@@ -11,7 +10,6 @@ document.addEventListener('DOMContentLoaded', function() {
             return;
         }
   
-        // Проверяем существование мероприятия через API
         fetch(`http://localhost:5000/api/events/${eventCode}`)
             .then(response => {
                 if (!response.ok) {
@@ -32,7 +30,6 @@ document.addEventListener('DOMContentLoaded', function() {
             });
     });
   
-    // Переключение видимости кода
     const toggleViewEventCode = document.getElementById('toggleViewEventCode');
     if (toggleViewEventCode) {
         toggleViewEventCode.addEventListener('click', function() {

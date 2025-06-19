@@ -1,7 +1,6 @@
-/* Основные стили */
 body {
     background-color: #ffffff;
-    color: #333; /* Изменен цвет текста по умолчанию */
+    color: #333; 
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     display: flex;
     flex-direction: column;
@@ -10,9 +9,8 @@ body {
     padding: 0;
   }
   
-  /* Шапка - серая */
   header {
-    background-color: #f8f9fa !important; /* Светло-серый цвет */
+    background-color: #f8f9fa !important;
   }
   
   .navbar {
@@ -22,18 +20,17 @@ body {
   .navbar-brand {
     font-weight: 600;
     font-size: 1.5rem;
-    color: white !important; /* Темный цвет текста */
+    color: white !important;
   }
   
-  /* Футер - серый */
   footer {
-    background-color: white !important; /* Светло-серый цвет */
-    color: #212529 !important; /* Темный цвет текста */
+    background-color: white !important; 
+    color: #212529 !important;
     padding: 1.5rem 0;
   }
   
   footer a {
-    color: white !important; /* Темный цвет текста */
+    color: white !important;
     text-decoration: none;
     transition: opacity 0.3s;
   }
@@ -42,7 +39,6 @@ body {
     opacity: 0.8;
   }
   
-  /* Основной контент */
   .main-content {
     text-align: center;
     width: 100%;
@@ -54,17 +50,16 @@ body {
     font-size: 2.8rem;
     margin-bottom: 1.5rem;
     font-weight: 700;
-    color: #212529; /* Темный цвет текста */
+    color: #212529;
   }
   
   .lead {
     font-size: 1.5rem;
     margin-bottom: 3rem;
-    color: #6c757d; /* Серый цвет текста */
-    display: block; /* Убедимся, что элемент отображается */
+    color: #6c757d;
+    display: block; 
   }
   
-  /* Основной контент */
   main {
     flex: 1;
     display: flex;
@@ -91,7 +86,6 @@ body {
     color: #aaa;
   }
   
-  /* Блоки с мероприятиями */
   .event-cards {
     display: flex;
     justify-content: center;
@@ -151,11 +145,6 @@ body {
     margin-bottom: 15px;
   }
 
-  
-  /* Футер */
-
-  
-  /* Адаптивность */
   @media (max-width: 992px) {
     .event-card {
       width: 400px;

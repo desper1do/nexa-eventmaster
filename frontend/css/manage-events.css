@@ -1,8 +1,5 @@
-/* style.css */
-
-/* Основные стили */
 body {
-  background-color: #ffffff; /* Белый фон страницы */
+  background-color: #ffffff; 
   color: #333;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   display: flex;
@@ -10,9 +7,8 @@ body {
   min-height: 100vh;
 }
 
-/* Карточки мероприятий */
 .card {
-  background-color: #f3e9dd; /* Бежевый фон карточек */
+  background-color: #f3e9dd; 
   border-radius: 12px;
   border: none;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
@@ -31,22 +27,21 @@ body {
 .card-title {
   font-size: 1.5rem;
   font-weight: 600;
-  color: #2c3e50; /* Темно-серый для заголовков */
+  color: #2c3e50;
   margin-bottom: 1rem;
 }
 
 .card-text {
-  color: #34495e; /* Серый для текста */
+  color: #34495e;
   line-height: 1.6;
 }
 
 .card-footer {
-  background-color: #f2e2ce; /* Полупрозрачный бежевый */
+  background-color: #f2e2ce;
   border-top: 1px solid rgba(0, 0, 0, 0.05);
   padding: 1rem 1.5rem;
 }
 
-/* Кнопки (все овальные) */
 .btn {
   border-radius: 50px !important;
   padding: 0.5rem 1.25rem;
@@ -56,39 +51,37 @@ body {
   min-width: 100px;
 }
 
-/* Переопределяем стили кнопки "Открыть" */
 .btn-primary {
-  background-color: #6e1717 !important; /* Серый */
+  background-color: #6e1717 !important; 
   border-color: #6c757d !important;
 }
 
 .btn-primary:hover {
-  background-color: #5c1515 !important; /* Темно-серый при наведении */
+  background-color: #5c1515 !important; 
 }
 
-/* Делаем кнопку "Удалить" красной */
 .btn-danger {
   background-color: #dc3545 !important;
   border-color: #dc3545 !important;
 }
 
 .btn-danger:hover {
-  background-color: #c82333 !important; /* Темно-красный при наведении */
+  background-color: #c82333 !important; 
 }
 .btn-primary {
-  background-color: #b52c2ce6; /* Красный */
+  background-color: #b52c2ce6; 
 }
 
 .btn-secondary {
-  background-color: #6c757d; /* Серый */
+  background-color: #6c757d; 
 }
 
 .btn-danger {
-  background-color: #b52c2ce6; /* Красный */
+  background-color: #b52c2ce6; 
 }
 
 .btn-outline-secondary {
-  border: 1px solid #6c757d; /* Серый */
+  border: 1px solid #6c757d;
   color: #6c757d;
 }
 
@@ -97,7 +90,6 @@ body {
   color: white;
 }
 
-/* Бейджи статусов */
 .badge {
   border-radius: 50px;
   padding: 0.5em 0.8em;
@@ -112,7 +104,6 @@ body {
   background-color: #6c757d !important;
 }
 
-/* Поисковая строка */
 .input-group {
   max-width: 400px;
 }
@@ -125,7 +116,6 @@ body {
   border-radius: 0 50px 50px 0 !important;
 }
 
-/* Модальное окно */
 .modal-content {
   border-radius: 12px;
   background-color: #ffffff;
@@ -139,7 +129,6 @@ body {
   border-top: 1px solid #dee2e6;
 }
 
-/* Адаптивность */
 @media (max-width: 768px) {
   .card-footer {
     flex-direction: column;

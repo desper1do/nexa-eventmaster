@@ -1,4 +1,3 @@
-// js/event.js
 document.addEventListener('DOMContentLoaded', function() {
     const createEventForm = document.getElementById('createEventForm');
     if (createEventForm) {

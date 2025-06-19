@@ -1,6 +1,5 @@
-/* Стили для страницы создания мероприятия */
 body {
-  background-color: #ffffff; /* Белый фон страницы */
+  background-color: #ffffff;
   color: #333;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   display: flex;
@@ -30,7 +29,6 @@ body {
     min-height: 120px;
   }
 
-  /* Стиль для черной овальной кнопки */
 .btn-dark.rounded-pill {
     background-color: #dc3545 !important;
     color: white !important;
@@ -50,7 +48,6 @@ body {
     box-shadow: none;
   }
   
-  /* Адаптивность для кнопки */
   @media (max-width: 768px) {
     .btn-dark.rounded-pill {
       width: 100%;
@@ -58,7 +55,6 @@ body {
     }
   }
   
-  /* Адаптивность */
   @media (max-width: 768px) {
     .event-form-container {
       padding: 2rem !important;

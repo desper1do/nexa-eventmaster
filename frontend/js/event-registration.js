@@ -1,4 +1,3 @@
-// js/event-registration.js
 document.addEventListener('DOMContentLoaded', function () {
     const urlParams = new URLSearchParams(window.location.search);
     let eventId = urlParams.get('event');

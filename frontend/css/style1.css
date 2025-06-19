@@ -8,7 +8,6 @@ body {
     padding: 0;
   }
   
-  /* Шапка */
   header {
     background-color: #000 !important;
   }
@@ -23,7 +22,6 @@ body {
     color: white !important;
   }
   
-  /* Футер */
   footer {
     background-color: #000 !important;
     color: white !important;
@@ -42,7 +40,6 @@ body {
   
 
   
-  /* Адаптация для мобильных */
   @media (max-width: 768px) {
     .navbar-brand {
       font-size: 1.2rem;
